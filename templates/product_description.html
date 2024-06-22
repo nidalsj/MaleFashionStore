@@ -1,0 +1,159 @@
+{% load static %}
+<section class="shop-details">
+    <div class="product__details__pic">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="product__details__breadcrumb">
+                        <a href="./index.html">Home</a>
+                        <a href="./shop.html">Shop</a>
+                        <span>Product Details</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-3">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#tabs-1" role="tab" aria-selected="false">
+                                <div class="product__thumb__pic set-bg" data-setbg="{% static 'img/product/jacket1.1.jpg' %}" style="background-image: url(&quot;img/product/jacket1.1.jpg&quot;);">
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab" aria-selected="false">
+                                <div class="product__thumb__pic set-bg" data-setbg="{% static 'img/product/jacket1.2.jpg' %}" style="background-image: url(&quot;img/product/jacket1.2.jpg&quot;);">
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" href="#tabs-3" role="tab" aria-selected="true">
+                                <div class="product__thumb__pic set-bg" data-setbg="{% static 'img/product/jacket1.3.jpg' %}" style="background-image: url(&quot;img/product/jacket1.3.jpg&quot;);">
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-6 col-md-9">
+                    <div class="tab-content">
+                        <div class="tab-pane" id="tabs-1" role="tabpanel">
+                            <div class="product__details__pic__item">
+                                <img src="{% static 'img/product/jacket1.1.jpg' %}" alt="">
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="tabs-2" role="tabpanel">
+                            <div class="product__details__pic__item">
+                                <img src="{% static 'img/product/jacket1.2.jpg' %}" alt="">
+                            </div>
+                        </div>
+                        <div class="tab-pane active" id="tabs-3" role="tabpanel">
+                            <div class="product__details__pic__item">
+                                <img src="{% static 'img/product/jacket1.3.jpg' %}" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="product__details__content">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="col-lg-8">
+                    <div class="product__details__text">
+                        <h4>Varsity Jacket Black</h4>
+                        <p>ZARA</p>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                            <span> - 5 Reviews</span>
+                        </div>
+                        <h3>₹ 1299.00 <span>₹ 2199.00</span></h3>
+                        <p>Coat with quilted lining and an adjustable hood. Featuring long sleeves with adjustable
+                            cuff tabs, adjustable asymmetric hem with elastic side tabs and a front zip fastening
+                            with placket.</p>
+                        <div class="product__details__option">
+                            <div class="product__details__option__size">
+                                <span>Size:</span>
+                                <label for="xxl">xxl
+                                    <input type="radio" id="xxl">
+                                </label>
+                                <label class="active" for="xl">xl
+                                    <input type="radio" id="xl">
+                                </label>
+                                <label for="l">l
+                                    <input type="radio" id="l">
+                                </label>
+                                <label for="sm">s
+                                    <input type="radio" id="sm">
+                                </label>
+                            </div>                               
+                        </div>
+                        <div class="product__details__cart__option">
+                            <div class="quantity">
+                                <div class="pro-qty"><span class="fa fa-angle-up dec qtybtn"></span>
+                                    <input type="number" value="1" min="1">
+                                <span class="fa fa-angle-down inc qtybtn"></span></div>
+                            </div>
+                            <a href="#" class="primary-btn">add to cart</a>
+                        </div>
+                        <div class="product__details__btns__option">
+                            <a href="#"><i class="fa fa-heart"></i> add to wishlist</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="product__details__tab">
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" data-toggle="tab" href="#tabs-5" role="tab" style="color: red;" aria-selected="true">Customer
+                                    Reviews</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#tabs-6" role="tab" style="color: red;" aria-selected="false">Write Review</a>
+                            </li>                              
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tabs-5" role="tabpanel">
+                                <div class="product__details__tab__content">
+                                    <p class="note">Nam tempus turpis at metus scelerisque placerat nulla deumantos
+                                        solicitud felis. Pellentesque diam dolor, elementum etos lobortis des mollis
+                                        ut risus. Sedcus faucibus an sullamcorper mattis drostique des commodo
+                                        pharetras loremos.</p>
+                                    <div class="product__details__tab__content__item">
+                                        <h5>Products Infomation</h5>
+                                        <p>A Pocd.</p>
+                                        <p>As is t</p>
+                                    </div>
+                                    <div class="product__details__tab__content__item">
+                                        <h5>Material used</h5>
+                                        <p>Polynd.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tabs-6" role="tabpanel">
+                                <div class="product__details__tab__content">
+                                    <div class="product__details__tab__content__item">
+                                        <h5>Products Infomation</h5>
+                                        <p>A Pad.</p>
+                                        <p>As is ed.</p>
+                                    </div>
+                                    <div class="product__details__tab__content__item">
+                                        <h5>Material used</h5>
+                                        <p>Polyd.</p>
+                                    </div>
+                                </div>
+                            </div>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

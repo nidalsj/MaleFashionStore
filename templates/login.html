@@ -1,0 +1,26 @@
+{% extends 'base_layout.html' %}
+{% load static %}
+{% block content %}
+<div class="container mt-5 mb-5" style="max-width: 700px;">
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <img src="{% static 'img/logo.png' %}" alt="Logo" class="img-fluid mb-3">
+
+            <div class="blog__details__comment">
+                <h4 class="mt-4">LOGIN TO START PURCHASING</h4>
+
+
+                <form action="#">
+                    <div class="col-lg-12 text-center">
+                        <input type="email" placeholder="Enter Email Address">
+                        <input type="password" placeholder="Enter Password">
+                        <button type="submit" class="site-btn">Sign in</button>
+                        <h5 class="mt-4">New user? <a href="{% url 'user_signup' %}">Click Here</a> to create a new account</h5>
+                        <h5 class="mt-4">Forgot password? <a href="">Click Here</a> to reset</h5>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
