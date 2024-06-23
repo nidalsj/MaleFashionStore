@@ -9,8 +9,7 @@ class Customer(models.Model):
     LIVE = 1
     DELETE = 0
     DELETE_CHOICES = ((LIVE, 'Live'), (DELETE, 'Delete'))
-    name = models.CharField(max_length=200)
-    address = models.TextField()
+    first_name = models.CharField(max_length=200)
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='customer_profile')
     phone = models.CharField(max_length=200)
     email = models.EmailField(default='example@gmail.com')
@@ -19,4 +18,4 @@ class Customer(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self) -> str:
-        return self.user.name
+        return self.user.first_name

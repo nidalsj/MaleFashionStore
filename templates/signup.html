@@ -10,7 +10,8 @@
                 <h4 class="mt-4">CREATE A NEW ACCOUNT</h4>
 
 
-                <form action="#">
+                <form action="{% url 'user_signup' %}" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
                     <div class="col-lg-12 text-center">
                         <input type="text" placeholder="Enter Full Name" name="fullname">
                         <input type="email" placeholder="Enter Email Address" name="email">

@@ -1,7 +1,6 @@
 from django.db import models
 from django.db.models import CharField
-from customers.models import User
-
+from django.contrib.auth.models import User
 
 # Model for Products
 
@@ -11,7 +10,9 @@ class Product(models.Model):
     DELETE = 0
     DELETE_CHOICES = ((LIVE, 'Live'), (DELETE, 'Delete'))
     title = models.CharField(max_length=200)
+    brand = models.CharField(max_length=100, null=True)
     price = models.FloatField()
+    mrp_price = models.FloatField(null=True, default=0.0)
     size_s = models.BooleanField(default=False)
     size_m = models.BooleanField(default=False)
     size_l = models.BooleanField(default=False)

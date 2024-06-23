@@ -16,19 +16,19 @@
                     <ul class="nav nav-tabs" role="tablist">
                         <li class="nav-item">
                             <a class="nav-link" data-toggle="tab" href="#tabs-1" role="tab" aria-selected="false">
-                                <div class="product__thumb__pic set-bg" data-setbg="{% static 'img/product/jacket1.1.jpg' %}" style="background-image: url(&quot;img/product/jacket1.1.jpg&quot;);">
+                                <div class="product__thumb__pic set-bg" data-setbg="{{product.image1.url}}" style="background-image: url(&quot;img/product/jacket1.1.jpg&quot;);">
                                 </div>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab" aria-selected="false">
-                                <div class="product__thumb__pic set-bg" data-setbg="{% static 'img/product/jacket1.2.jpg' %}" style="background-image: url(&quot;img/product/jacket1.2.jpg&quot;);">
+                                <div class="product__thumb__pic set-bg" data-setbg="{{product.image2.url}}" style="background-image: url(&quot;img/product/jacket1.2.jpg&quot;);">
                                 </div>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active" data-toggle="tab" href="#tabs-3" role="tab" aria-selected="true">
-                                <div class="product__thumb__pic set-bg" data-setbg="{% static 'img/product/jacket1.3.jpg' %}" style="background-image: url(&quot;img/product/jacket1.3.jpg&quot;);">
+                                <div class="product__thumb__pic set-bg" data-setbg="{{product.image3.url}}" style="background-image: url(&quot;img/product/jacket1.3.jpg&quot;);">
                                 </div>
                             </a>
                         </li>
@@ -38,17 +38,17 @@
                     <div class="tab-content">
                         <div class="tab-pane" id="tabs-1" role="tabpanel">
                             <div class="product__details__pic__item">
-                                <img src="{% static 'img/product/jacket1.1.jpg' %}" alt="">
+                                <img src="{{product.image1.url}}" alt="">
                             </div>
                         </div>
                         <div class="tab-pane" id="tabs-2" role="tabpanel">
                             <div class="product__details__pic__item">
-                                <img src="{% static 'img/product/jacket1.2.jpg' %}" alt="">
+                                <img src="{{product.image2.url}}" alt="">
                             </div>
                         </div>
                         <div class="tab-pane active" id="tabs-3" role="tabpanel">
                             <div class="product__details__pic__item">
-                                <img src="{% static 'img/product/jacket1.3.jpg' %}" alt="">
+                                <img src="{{product.image3.url}}" alt="">
                             </div>
                         </div>
                     </div>
@@ -61,8 +61,8 @@
             <div class="row d-flex justify-content-center">
                 <div class="col-lg-8">
                     <div class="product__details__text">
-                        <h4>Varsity Jacket Black</h4>
-                        <p>ZARA</p>
+                        <h4>{{product.title}}</h4>
+                        <p>{{product.brand}}</p>
                         <div class="rating">
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
@@ -71,10 +71,8 @@
                             <i class="fa fa-star-o"></i>
                             <span> - 5 Reviews</span>
                         </div>
-                        <h3>₹ 1299.00 <span>₹ 2199.00</span></h3>
-                        <p>Coat with quilted lining and an adjustable hood. Featuring long sleeves with adjustable
-                            cuff tabs, adjustable asymmetric hem with elastic side tabs and a front zip fastening
-                            with placket.</p>
+                        <h3>₹ {{product.price}} <span>₹ {{product.mrp_price}}</span></h3>
+                        <p>{{product.description}}</p>
                         <div class="product__details__option">
                             <div class="product__details__option__size">
                                 <span>Size:</span>

@@ -1,4 +1,5 @@
 {% load static %}
+{% load chunks %}
 <section class="breadcrumb-option">
     <div class="container">
         <div class="row">
@@ -34,16 +35,14 @@
                                 <div id="collapseOne" class="collapse show" data-parent="#accordionExample">
                                     <div class="card-body">
                                         <div class="shop__sidebar__categories">
-                                            <ul class="nice-scroll" tabindex="1" style="overflow-y: hidden; outline: none;">
-                                                <li><a href="#">Men (20)</a></li>
-                                                <li><a href="#">Women (20)</a></li>
-                                                <li><a href="#">Bags (20)</a></li>
-                                                <li><a href="#">Clothing (20)</a></li>
-                                                <li><a href="#">Shoes (20)</a></li>
-                                                <li><a href="#">Accessories (20)</a></li>
-                                                <li><a href="#">Kids (20)</a></li>
-                                                <li><a href="#">Kids (20)</a></li>
-                                                <li><a href="#">Kids (20)</a></li>
+                                            <ul class="nice-scroll" tabindex="1"
+                                                style="overflow-y: hidden; outline: none;">
+                                                <li><a href="#">Shirts (20)</a></li>
+                                                <li><a href="#">Jackets (20)</a></li>
+                                                <li><a href="#">T-Shirts (20)</a></li>
+                                                <li><a href="#">Hoodies (20)</a></li>
+                                                <li><a href="#">Jeans (20)</a></li>
+                                                <li><a href="#">Pants (20)</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -61,293 +60,53 @@
                                 <p>Showing 1-12 of 126 results</p>
                             </div>
                         </div>
-                        <div class="col-lg-6 col-md-6 col-sm-6">
-                            <div class="shop__product__option__right">
-                                <p>Sort by Price:</p>
-                                <select style="display: none;">
-                                    <option value="">Low To High</option>
-                                    <option value="">$0 - $55</option>
-                                    <option value="">$55 - $100</option>
-                                </select><div class="nice-select" tabindex="0"><span class="current">Low To High</span><ul class="list"><li data-value="" class="option selected">Low To High</li><li data-value="" class="option">$0 - $55</li><li data-value="" class="option">$55 - $100</li></ul></div>
-                            </div>
-                        </div>
                     </div>
                 </div>
+
+                {% for product_chunks in products|chunks:3 %}
                 <div class="row">
+                    {% for product in product_chunks %}
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="product__item">
-                            <a href="{% url 'product_details' %}">
-                                <div class="product__item__pic set-bg" data-setbg="{% static 'img/product/jacket1.1.jpg' %}" style="background-image: url(&quot;img/product/jacket1.1.jpg&quot;);">
+                            <a href="{% url 'product_details' product.id %}">
+                                <div class="product__item__pic set-bg" data-setbg="{{product.image1.url}}">
                                     <ul class="product__hover">
                                         <li><img src="{% static 'img/icon/cart.png' %}" alt=""></li>
                                     </ul>
                                 </div>
-                            </a>
-                            <div class="product__item__text">
-                                <h5>Piqué Biker Jacket</h5>
-                                <h5>$67.24</h5>
-                                <div class="rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star-o"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="product__item">
-                            <a href="">
-                                <div class="product__item__pic set-bg" data-setbg="{% static 'img/product/jacket1.1.jpg' %}" style="background-image: url(&quot;img/product/jacket1.1.jpg&quot;);">
-                                    <ul class="product__hover">
-                                        <li><img src="{% static 'img/icon/cart.png' %}" alt=""></li>
-                                    </ul>
+
+                                <div class="product__item__text">
+                                    <h5>{{ product.title }}</h5>
+                                    <h5>₹ {{product.price}} <span style="color: rgb(189, 173, 173);"><s>₹
+                                                {{product.mrp_price}}</s></span></h5>
+                                    <div class="rating">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star-o"></i>
+                                    </div>
                                 </div>
                             </a>
-                            <div class="product__item__text">
-                                <h5>Piqué Biker Jacket</h5>
-                                <h5>$67.24</h5>
-                                <div class="rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star-o"></i>
-                                </div>
-                            </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="product__item">
-                            <a href="">
-                                <div class="product__item__pic set-bg" data-setbg="{% static 'img/product/jacket1.1.jpg' %}" style="background-image: url(&quot;img/product/jacket1.1.jpg&quot;);">
-                                    <ul class="product__hover">
-                                        <li><img src="{% static 'img/icon/cart.png' %}" alt=""></li>
-                                    </ul>
-                                </div>
-                            </a>
-                            <div class="product__item__text">
-                                <h5>Piqué Biker Jacket</h5>
-                                <h5>$67.24</h5>
-                                <div class="rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star-o"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="product__item">
-                            <a href="">
-                                <div class="product__item__pic set-bg" data-setbg="{% static 'img/product/jacket1.1.jpg' %}" style="background-image: url(&quot;img/product/jacket1.1.jpg&quot;);">
-                                    <ul class="product__hover">
-                                        <li><img src="{% static 'img/icon/cart.png' %}" alt=""></li>
-                                    </ul>
-                                </div>
-                            </a>
-                            <div class="product__item__text">
-                                <h5>Piqué Biker Jacket</h5>
-                                <h5>$67.24</h5>
-                                <div class="rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star-o"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="product__item">
-                            <a href="">
-                                <div class="product__item__pic set-bg" data-setbg="{% static 'img/product/jacket1.1.jpg' %}" style="background-image: url(&quot;img/product/jacket1.1.jpg&quot;);">
-                                    <ul class="product__hover">
-                                        <li><img src="{% static 'img/icon/cart.png' %}" alt=""></li>
-                                    </ul>
-                                </div>
-                            </a>
-                            <div class="product__item__text">
-                                <h5>Piqué Biker Jacket</h5>
-                                <h5>$67.24</h5>
-                                <div class="rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star-o"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="product__item">
-                            <a href="">
-                                <div class="product__item__pic set-bg" data-setbg="{% static 'img/product/jacket1.1.jpg' %}" style="background-image: url(&quot;img/product/jacket1.1.jpg&quot;);">
-                                    <ul class="product__hover">
-                                        <li><img src="{% static 'img/icon/cart.png' %}" alt=""></li>
-                                    </ul>
-                                </div>
-                            </a>
-                            <div class="product__item__text">
-                                <h5>Piqué Biker Jacket</h5>
-                                <h5>$67.24</h5>
-                                <div class="rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star-o"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="product__item">
-                            <a href="">
-                                <div class="product__item__pic set-bg" data-setbg="{% static 'img/product/jacket1.1.jpg' %}" style="background-image: url(&quot;img/product/jacket1.1.jpg&quot;);">
-                                    <ul class="product__hover">
-                                        <li><img src="{% static 'img/icon/cart.png' %}" alt=""></li>
-                                    </ul>
-                                </div>
-                            </a>
-                            <div class="product__item__text">
-                                <h5>Piqué Biker Jacket</h5>
-                                <h5>$67.24</h5>
-                                <div class="rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star-o"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="product__item">
-                            <a href="">
-                                <div class="product__item__pic set-bg" data-setbg="{% static 'img/product/jacket1.1.jpg' %}" style="background-image: url(&quot;img/product/jacket1.1.jpg&quot;);">
-                                    <ul class="product__hover">
-                                        <li><img src="{% static 'img/icon/cart.png' %}" alt=""></li>
-                                    </ul>
-                                </div>
-                            </a>
-                            <div class="product__item__text">
-                                <h5>Piqué Biker Jacket</h5>
-                                <h5>$67.24</h5>
-                                <div class="rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star-o"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="product__item">
-                            <a href="">
-                                <div class="product__item__pic set-bg" data-setbg="{% static 'img/product/jacket1.1.jpg' %}" style="background-image: url(&quot;img/product/jacket1.1.jpg&quot;);">
-                                    <ul class="product__hover">
-                                        <li><img src="{% static 'img/icon/cart.png' %}" alt=""></li>
-                                    </ul>
-                                </div>
-                            </a>
-                            <div class="product__item__text">
-                                <h5>Piqué Biker Jacket</h5>
-                                <h5>$67.24</h5>
-                                <div class="rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star-o"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="product__item">
-                            <a href="">
-                                <div class="product__item__pic set-bg" data-setbg="{% static 'img/product/jacket1.1.jpg' %}" style="background-image: url(&quot;img/product/jacket1.1.jpg&quot;);">
-                                    <ul class="product__hover">
-                                        <li><img src="{% static 'img/icon/cart.png' %}" alt=""></li>
-                                    </ul>
-                                </div>
-                            </a>
-                            <div class="product__item__text">
-                                <h5>Piqué Biker Jacket</h5>
-                                <h5>$67.24</h5>
-                                <div class="rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star-o"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="product__item">
-                            <a href="">
-                                <div class="product__item__pic set-bg" data-setbg="{% static 'img/product/jacket1.1.jpg' %}" style="background-image: url(&quot;img/product/jacket1.1.jpg&quot;);">
-                                    <ul class="product__hover">
-                                        <li><img src="{% static 'img/icon/cart.png' %}" alt=""></li>
-                                    </ul>
-                                </div>
-                            </a>
-                            <div class="product__item__text">
-                                <h5>Piqué Biker Jacket</h5>
-                                <h5>$67.24</h5>
-                                <div class="rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star-o"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="product__item">
-                            <a href="">
-                                <div class="product__item__pic set-bg" data-setbg="{% static 'img/product/jacket1.1.jpg' %}" style="background-image: url(&quot;img/product/jacket1.1.jpg&quot;);">
-                                    <ul class="product__hover">
-                                        <li><img src="{% static 'img/icon/cart.png' %}" alt=""></li>
-                                    </ul>
-                                </div>
-                            </a>
-                            <div class="product__item__text">
-                                <h5>Piqué Biker Jacket</h5>
-                                <h5>$67.24</h5>
-                                <div class="rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star-o"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
+                    {% endfor %}
                 </div>
+                {% endfor %}
+
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="product__pagination">
-                            <a class="active" href="#">1</a>
-                            <a href="#">2</a>
-                            <a href="#">3</a>
-                            <span>...</span>
-                            <a href="#">21</a>
+                            {% if products.has_previous %}
+                            <a class="active" href="?page={{products.previous_page_number}}"><span><</span></a>
+                            {% endif %}
+                            {% for i in products.paginator.page_range %}
+                            <a class="active" href="?page={{i}}">{{i}}</a>
+                            {% endfor %}
+                            {% if products.has_next %}
+                            <a class="active" href="?page={{products.next_page_number}}"><span>></span></a>
+                            {% endif %}
+
                         </div>
                     </div>
                 </div>
