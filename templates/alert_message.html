@@ -1,0 +1,8 @@
+{% for message in messages %}
+{% if message.tags == 'success' %}
+<h5 class="message-success"><i class="fa-solid fa-circle-check"></i><b> {{ message }}</b></h5>
+{% endif %}
+{% if message.tags == 'error' %}
+<h5 class="message-error"><i class="fa-solid fa-circle-exclamation"></i><b> {{ message }}</b></h5>
+{% endif %}
+{% endfor %}

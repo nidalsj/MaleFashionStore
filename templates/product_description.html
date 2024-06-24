@@ -5,8 +5,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="product__details__breadcrumb">
-                        <a href="./index.html">Home</a>
-                        <a href="./shop.html">Shop</a>
+                        <a href="{% url 'home' %}">Home</a>
+                        <a href="{% url 'list_product' %}">Shop</a>
                         <span>Product Details</span>
                     </div>
                 </div>
@@ -98,9 +98,7 @@
                             </div>
                             <a href="#" class="primary-btn">add to cart</a>
                         </div>
-                        <div class="product__details__btns__option">
-                            <a href="#"><i class="fa fa-heart"></i> add to wishlist</a>
-                        </div>
+                        
                     </div>
                 </div>
             </div>

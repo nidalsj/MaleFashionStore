@@ -9,6 +9,11 @@
             <div class="blog__details__comment">
                 <h4 class="mt-4">LOGIN TO START PURCHASING</h4>
 
+                {% if messages %}
+                <div class="mb-4">
+                {% include 'alert_message.html' %}    
+                </div>               
+                {% endif %}
 
                 <form action="{% url 'user_login' %}" method="post" enctype="multipart/form-data">
                     {% csrf_token %}

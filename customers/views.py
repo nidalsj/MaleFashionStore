@@ -85,3 +85,5 @@ def loginuser(request):
 def logoutuser(request):
     logout(request)
     return redirect('home')
+
+

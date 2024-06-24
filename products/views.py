@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from . models import Product
+from . models import Product, ContactUs
+from django.contrib import messages
 from django.core.paginator import Paginator
 
 
@@ -24,3 +25,15 @@ def detail_product(request,pk):
     product = Product.objects.get(pk=pk)
     context = {'product': product}
     return render(request, 'product_details.html', context)
+
+
+def contact_us(request):
+    return render(request, 'contact_page.html')
+
+
+def read_blogs(request):
+    return render (request, 'read_blogs.html')
+
+
+def blog_post(request):
+    return render (request, 'blog_post.html')

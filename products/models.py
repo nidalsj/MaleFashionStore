@@ -9,8 +9,17 @@ class Product(models.Model):
     LIVE = 1
     DELETE = 0
     DELETE_CHOICES = ((LIVE, 'Live'), (DELETE, 'Delete'))
+    PRODUCT_CATEGORIES = (
+        ('shirts','Shirts'),
+        ('jackets','Jackets'),
+        ('tshirts','T-shirts'),
+        ('hoodies','Hoodies'),
+        ('jeans','Jeans'),
+        ('pants','Pants'),
+        )
     title = models.CharField(max_length=200)
     brand = models.CharField(max_length=100, null=True)
+    category = models.CharField(max_length=50, null=True, choices=PRODUCT_CATEGORIES)
     price = models.FloatField()
     mrp_price = models.FloatField(null=True, default=0.0)
     size_s = models.BooleanField(default=False)
