@@ -29,7 +29,7 @@ def signupuser(request):
         
         # phone number length
         if len(phone) != 10:
-            messages.error(request, 'Phone number should be 10 digits')
+            messages.error(request, 'Phone number must be 10 digits')
             return render(request, 'signup.html')
 
         # phone number is same as the password
@@ -76,7 +76,7 @@ def loginuser(request):
             login(request, user)
             return redirect('home')
         else:
-            messages.error(request, 'You need to signup first')
+            messages.error(request, 'Invalid user. You need to signup first')
             return render(request, 'signup.html')
     else:
         return render(request, 'login.html')

@@ -12,9 +12,9 @@
                     <div class="header__top__right">
                         <div class="header__top__links">
                             {% if not request.user.is_authenticated %}
-                            <a href="{% url 'user_login' %}"><i class="fa-regular fa-user"></i> Login</a>
+                            <a href="{% url 'user_login' %}">Login</a>
                             {% else %}
-                            <a href="{% url 'user_logout' %}"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
+                            <a href="{% url 'user_logout' %}">Logout</a>
                             {% endif %}
                         </div>
                     </div>
@@ -34,7 +34,7 @@
             </div>
             <div class="col-lg-3 col-md-3">
                 <div class="header__nav__option">
-                    <a href="#" style="color: black;"><i class="fa-solid fa-truck-fast"></i>&nbsp;&nbsp;View Orders</a>
+                    <a href="#" style="color: black;"><i class="fa-solid fa-user"></i>&nbsp;&nbsp;Profile</a>
                     <a href="{% url 'cart' %}" style="color: black;"><i class="fa-solid fa-bag-shopping"></i>&nbsp;&nbsp;Cart</a>
 
                 </div>

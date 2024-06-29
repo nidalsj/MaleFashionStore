@@ -1,5 +1,9 @@
 {% extends 'base_layout.html' %}
 
+{% block title %}
+- {{product.title}}
+{% endblock title %}
+
 {% block content %}
 {% include 'product_description.html' %}
 {% endblock content %}

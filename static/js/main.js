@@ -89,7 +89,7 @@
         items: 1,
         dots: false,
         nav: true,
-        navText: ["<span class='arrow_left'><span/>", "<span class='arrow_right'><span/>"],
+        navText: ["<i class='fa-solid fa-arrow-left'></i>", "<i class='fa-solid fa-arrow-right'></i>"],
         animateOut: 'fadeOut',
         animateIn: 'fadeIn',
         smartSpeed: 1200,
@@ -189,10 +189,10 @@
             var newVal = parseFloat(oldValue) + 1;
         } else {
             // Don't allow decrementing below zero
-            if (oldValue > 0) {
+            if (oldValue > 1) {
                 var newVal = parseFloat(oldValue) - 1;
             } else {
-                newVal = 0;
+                newVal = 1;
             }
         }
         $button.parent().find('input').val(newVal);
