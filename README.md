@@ -1,1 +1,1 @@
-## E-commerce website in preparation 
+## E-commerce website 
