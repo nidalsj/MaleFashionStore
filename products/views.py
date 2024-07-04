@@ -35,7 +35,18 @@ def detail_product(request,pk):
 
 
 def contact_us(request):
-    return render(request, 'contact_page.html')
+    form_submitted = False
+    if request.method=="POST":
+        name=request.POST.get('fullname')
+        usermail=request.POST.get('email')
+        subject=request.POST.get('subject')
+        message=request.POST.get('message')
+        ctquery=ContactUs(full_name=name,email_address=usermail,subject=subject,message=message)
+        ctquery.save()
+        
+        form_submitted = True
+        messages.success(request, 'Your message has been submitted successfully!')
+    return render(request,'contact_page.html', {'form_submitted': form_submitted})
 
 
 def read_blogs(request):

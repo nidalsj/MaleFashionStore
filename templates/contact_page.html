@@ -43,10 +43,15 @@
                         {% csrf_token %}
                         <div class="row">
                             <div class="col-lg-12">
-                                <input type="text" placeholder="Enter Full Name" name="fullname">
-                                <input type="email" placeholder="Enter Email" name="email">
-                                <input type="text" placeholder="Enter Subject" name="subject">
-                                <textarea placeholder="Message" name="message"></textarea>
+                                <div class="col-lg-12 mb-3">
+                                    {% if messages %}
+                                    {% include 'alert_message.html' %}
+                                    {% endif %}
+                                </div>
+                                <input type="text" placeholder="Enter Full Name" name="fullname" required>
+                                <input type="email" placeholder="Enter Email" name="email" required>
+                                <input type="text" placeholder="Enter Subject" name="subject" required>
+                                <textarea placeholder="Message" name="message" required></textarea>
                                 <button type="submit" class="site-btn">Send Message</button>
                             </div>
                         </div>

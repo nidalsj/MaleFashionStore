@@ -63,7 +63,6 @@ class ReadBlogs(models.Model):
 
 
 class ContactUs(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
     full_name = models.CharField(max_length=50)
     email_address = models.EmailField()
     subject = models.CharField(max_length=50)
