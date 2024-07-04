@@ -1,9 +1,21 @@
 {% load static %}
 <nav class="header__menu mobile-menu">
+    {% with request.resolver_match.url_name as url_name %}
     <ul>
-        <li class="active"><a href="{% url 'home' %}">Home</a></li>
-        <li><a href="{% url 'list_product' %}">Shop</a></li>
-        <li><a href="{% url 'read_blogs' %}">Blog</a></li>
-        <li><a href="{% url 'contact_us' %}">Contact</a></li>
+        <li class="{% if url_name == 'home' %}active{% endif %}">
+            <a href="{% url 'home' %}">Home</a>
+        </li>
+        <li class="{% if url_name == 'list_product' %}active{% endif %}
+        {% if url_name == 'product_details' %}active{% endif %}">
+            <a href="{% url 'list_product' %}">Shop</a>
+        </li>
+        <li class="{% if url_name == 'read_blogs' %}active{% endif %}
+        {% if url_name == 'blog_post' %}active{% endif %}">
+            <a href="{% url 'read_blogs' %}">Blog</a>
+        </li>
+        <li class="{% if url_name == 'contact_us' %}active{% endif %}">
+            <a href="{% url 'contact_us' %}">Contact</a>
+        </li>
     </ul>
+    {% endwith %}
 </nav>
