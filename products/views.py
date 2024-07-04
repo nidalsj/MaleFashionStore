@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from . models import Product, ContactUs, BannerContent
+from . models import Product, ContactUs, BannerContent, ReadBlogs
 from django.contrib import messages
 from django.core.paginator import Paginator
 
@@ -36,22 +36,26 @@ def detail_product(request,pk):
 
 def contact_us(request):
     form_submitted = False
-    if request.method=="POST":
-        name=request.POST.get('fullname')
-        usermail=request.POST.get('email')
-        subject=request.POST.get('subject')
-        message=request.POST.get('message')
-        ctquery=ContactUs(full_name=name,email_address=usermail,subject=subject,message=message)
-        ctquery.save()
+    if request.method == "POST":
+        name = request.POST.get('fullname')
+        usermail = request.POST.get('email')
+        subject = request.POST.get('subject')
+        message = request.POST.get('message')
+        ctquery = ContactUs(full_name=name, email_address=usermail, subject=subject, message=message)
+        ctquery.save() 
         
         form_submitted = True
         messages.success(request, 'Your message has been submitted successfully!')
-    return render(request,'contact_page.html', {'form_submitted': form_submitted})
+    return render(request, 'contact_page.html', {'form_submitted': form_submitted})
 
 
 def read_blogs(request):
-    return render (request, 'read_blogs.html')
+    blogs_list = ReadBlogs.objects.all()[:9]
+    context = {'blogs_list': blogs_list}
+    return render (request, 'read_blogs.html', context)
 
 
-def blog_post(request):
-    return render (request, 'blog_post.html')
+def blog_post(request, pk):
+    blog_post = ReadBlogs.objects.get(pk=pk)
+    context = {'blog_post': blog_post}
+    return render (request, 'blog_post.html', context)
