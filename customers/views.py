@@ -87,3 +87,5 @@ def logoutuser(request):
     return redirect('home')
 
 
+def user_profile(request):
+    return render(request, 'user_profile.html')

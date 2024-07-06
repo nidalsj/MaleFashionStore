@@ -21,8 +21,8 @@
                 <form action="{% url 'user_login' %}" method="post" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="col-lg-12 text-center">
-                        <input type="email" placeholder="Enter Email Address" name="email">
-                        <input type="password" placeholder="Enter Password" name="password">
+                        <input type="email" placeholder="Enter Email Address" name="email" required>
+                        <input type="password" placeholder="Enter Password" name="password" required>
                         <button type="submit" class="site-btn">Login</button>
                         <h5 class="mt-4">New user? <a href="{% url 'user_signup' %}">Click Here</a> to create a new account</h5>
                         <h5 class="mt-4">Forgot password? <a href="">Click Here</a> to reset</h5>

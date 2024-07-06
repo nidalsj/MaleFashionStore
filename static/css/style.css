@@ -161,6 +161,7 @@ ol {
 	display: inline-block;
 	font-size: 13px;
 	font-weight: 700;
+	border: 1px solid black;
 	text-transform: uppercase;
 	padding: 14px 30px;
 	color: #ffffff;

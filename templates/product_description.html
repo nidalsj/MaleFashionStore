@@ -16,19 +16,22 @@
                     <ul class="nav nav-tabs" role="tablist">
                         <li class="nav-item">
                             <a class="nav-link" data-toggle="tab" href="#tabs-1" role="tab" aria-selected="false">
-                                <div class="product__thumb__pic set-bg" data-setbg="{{product.image1.url}}" style="background-image: url(&quot;img/product/jacket1.1.jpg&quot;);">
+                                <div class="product__thumb__pic set-bg" data-setbg="{{product.image1.url}}"
+                                    style="background-image: url(&quot;img/product/jacket1.1.jpg&quot;);">
                                 </div>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab" aria-selected="false">
-                                <div class="product__thumb__pic set-bg" data-setbg="{{product.image2.url}}" style="background-image: url(&quot;img/product/jacket1.2.jpg&quot;);">
+                                <div class="product__thumb__pic set-bg" data-setbg="{{product.image2.url}}"
+                                    style="background-image: url(&quot;img/product/jacket1.2.jpg&quot;);">
                                 </div>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active" data-toggle="tab" href="#tabs-3" role="tab" aria-selected="true">
-                                <div class="product__thumb__pic set-bg" data-setbg="{{product.image3.url}}" style="background-image: url(&quot;img/product/jacket1.3.jpg&quot;);">
+                                <div class="product__thumb__pic set-bg" data-setbg="{{product.image3.url}}"
+                                    style="background-image: url(&quot;img/product/jacket1.3.jpg&quot;);">
                                 </div>
                             </a>
                         </li>
@@ -73,32 +76,44 @@
                         </div>
                         <h3>₹ {{product.price}} <span>₹ {{product.mrp_price}}</span></h3>
                         <p>{{product.description}}</p>
-                        <div class="product__details__option">
-                            <div class="product__details__option__size">
-                                <span>Size:</span>
-                                <label for="xxl">xxl
-                                    <input type="radio" id="xxl">
-                                </label>
-                                <label class="active" for="xl">xl
-                                    <input type="radio" id="xl">
-                                </label>
-                                <label for="l">l
-                                    <input type="radio" id="l">
-                                </label>
-                                <label for="sm">s
-                                    <input type="radio" id="sm">
-                                </label>
-                            </div>                               
-                        </div>
-                        <div class="product__details__cart__option">
-                            <div class="quantity">
-                                <div class="pro-qty"><span class="fa fa-angle-up dec qtybtn"></span>
-                                    <input type="number" value="1" min="1">
-                                <span class="fa fa-angle-down inc qtybtn"></span></div>
+                        <form action="{% url 'add_to_cart' %}" method="post" enctype="multipart/form-data"> {% csrf_token %}
+                            <div class="product__details__option">
+                                <div class="product__details__option__size">
+                                    <span>Size:</span>
+                                    {% if product.size_xl %}
+                                    <label for="xl">XLarge
+                                        <input type="radio" id="xl" value="XLarge" name="size">
+                                    </label>
+                                    {% endif %}
+                                    {% if product.size_l %}
+                                    <label class="active" for="l">Large
+                                        <input type="radio" id="l" value="Large" name="size">
+                                    </label>
+                                    {% endif %}
+                                    {% if product.size_m %}
+                                    <label for="m">Medium
+                                        <input type="radio" id="m" value="Medium" name="size">
+                                    </label>
+                                    {% endif %}
+                                    {% if product.size_m %}
+                                    <label for="sm">Small
+                                        <input type="radio" id="sm" value="Small" name="size">
+                                    </label>
+                                    {% endif %}
+                                </div>
                             </div>
-                            <a href="#" class="primary-btn">add to cart</a>
-                        </div>
-                        
+                            <input type="hidden" value="{{product.id}}" name="product_id">
+                            <div class="product__details__cart__option">
+                                <div class="quantity">
+                                    <div class="pro-qty"><span class="fa fa-angle-up dec qtybtn"></span>
+                                        <input type="number" value="1" min="1" name="quantity">
+                                        <span class="fa fa-angle-down inc qtybtn"></span>
+                                    </div>
+                                </div>
+                                <button type="submit" class="primary-btn">Add to Cart</button>
+                            </div>
+                        </form>
+
                     </div>
                 </div>
             </div>
@@ -107,12 +122,14 @@
                     <div class="product__details__tab">
                         <ul class="nav nav-tabs" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active" data-toggle="tab" href="#tabs-5" role="tab" style="color: red;" aria-selected="true">Customer
+                                <a class="nav-link active" data-toggle="tab" href="#tabs-5" role="tab"
+                                    style="color: red;" aria-selected="true">Customer
                                     Reviews</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-toggle="tab" href="#tabs-6" role="tab" style="color: red;" aria-selected="false">Write Review</a>
-                            </li>                              
+                                <a class="nav-link" data-toggle="tab" href="#tabs-6" role="tab" style="color: red;"
+                                    aria-selected="false">Write Review</a>
+                            </li>
                         </ul>
                         <div class="tab-content">
                             <div class="tab-pane active" id="tabs-5" role="tabpanel">
@@ -145,7 +162,7 @@
                                     </div>
                                 </div>
                             </div>
-                           
+
                         </div>
                     </div>
                 </div>

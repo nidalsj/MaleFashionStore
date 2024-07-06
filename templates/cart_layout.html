@@ -1,4 +1,6 @@
 {% load static %}
+{% load multiply %}
+{% load gettotal %}
 <section class="breadcrumb-option">
     <div class="container">
         <div class="row">
@@ -20,6 +22,7 @@
         <div class="row">
             <div class="col-lg-8">
                 <div class="shopping__cart__table">
+                    {% if cart and cart.added_items.all %}
                     <table>
                         <thead>
                             <tr>
@@ -30,79 +33,46 @@
                             </tr>
                         </thead>
                         <tbody>
+                            {% for cart_item in cart.added_items.all %}
                             <tr>
                                 <td class="product__cart__item">
                                     <div class="product__cart__item__pic">
-                                        <img src="{% static 'img/product/jacket1.1.jpg' %}" alt="" style="max-height: 100px;">
+                                        <img src="{{ cart_item.product.image1.url }}" alt="" style="max-height: 100px;">
                                     </div>
                                     <div class="product__cart__item__text">
-                                        <h6>T-shirt Contrast Pocket</h6>
-                                        <h5>₹ 98.49</h5>
+                                        <h6>{{ cart_item.product.title }}</h6>
+                                        <h6 style="color: red;">{{ cart_item.size }}</h6>
+                                        <h5>₹ {{ cart_item.product.price }}</h5>
                                     </div>
                                 </td>
                                 <td class="quantity__item">
-                                    <div class="quantity">
+                                    <!-- <div class="quantity">
                                         <div class="pro-qty-2">
-                                            <input type="text" value="1">
+                                            <input type="number" value="{{ cart_item.quantity }}" disabled>
                                         </div>
-                                    </div>
+                                    </div> -->
+                                    <p>{{ cart_item.quantity }}</p>
                                 </td>
-                                <td class="cart__price">₹ 30.00</td>
-                                <td class="cart__close"><i class="fa fa-close"></i></td>
+                                <td class="cart__price">₹ {% multiply cart_item.product.price cart_item.quantity %}</td>
+                                <td class="cart__close"><a href="{% url 'remove_item' cart_item.id %}"><i class="fa fa-close"></i></a></td>
                             </tr>
-                            <tr>
-                                <td class="product__cart__item">
-                                    <div class="product__cart__item__pic">
-                                        <img src="{% static 'img/product/jacket1.1.jpg' %}" alt="" style="max-height: 100px;">
-                                    </div>
-                                    <div class="product__cart__item__text">
-                                        <h6>T-shirt Contrast Pocket</h6>
-                                        <h5>₹ 98.49</h5>
-                                    </div>
-                                </td>
-                                <td class="quantity__item">
-                                    <div class="quantity">
-                                        <div class="pro-qty-2">
-                                            <input type="text" value="1">
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="cart__price">₹ 30.00</td>
-                                <td class="cart__close"><i class="fa fa-close"></i></td>
-                            </tr>
-                            <tr>
-                                <td class="product__cart__item">
-                                    <div class="product__cart__item__pic">
-                                        <img src="{% static 'img/product/jacket1.1.jpg' %}" alt="" style="max-height: 100px;">
-                                    </div>
-                                    <div class="product__cart__item__text">
-                                        <h6>T-shirt Contrast Pocket</h6>
-                                        <h5>₹ 98.49</h5>
-                                    </div>
-                                </td>
-                                <td class="quantity__item">
-                                    <div class="quantity">
-                                        <div class="pro-qty-2">
-                                            <input type="text" value="1">
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="cart__price">₹ 30.00</td>
-                                <td class="cart__close"><i class="fa fa-close"></i></td>
-                            </tr>
-                            
+                            {% endfor %}
+                                                        
                         </tbody>
                     </table>
+                    {% else %}
+                    <h5 style="color: red;" class="mb-5"><i class="fa-regular fa-face-frown-open"></i> No items available in cart</h5>
+                    {% endif %}
                 </div>
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-6">
                         <div class="continue__btn">
-                            <a href="#">Continue Shopping</a>
+                            <a href="{% url 'list_product' %}">Continue Shopping</a>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6">
                         <div class="continue__btn update__btn">
-                            <a href="#"><i class="fa fa-spinner"></i> Update cart</a>
+                            <a href="{% url 'cart' %}"><i class="fa fa-spinner"></i> Refresh cart</a>
                         </div>
                     </div>
                 </div>
@@ -118,10 +88,10 @@
                 <div class="cart__total">
                     <h6>Cart total</h6>
                     <ul>
-                        <li>Subtotal <span>₹ 169.50</span></li>
+                        <li>Subtotal <span>₹ {% gettotal cart %}</span></li>
                         <li>Shipping <span>₹ 00.00</span></li>
                         <li>Coupon Discount <span>- ₹ 00.00</span></li><br>
-                        <li>TOTAL <span>₹ 169.50</span></li>
+                        <li><b>TOTAL</b> <span>₹ 169.50</span></li>
                     </ul>
                     <a href="#" class="primary-btn">Proceed to checkout</a>
                 </div>
