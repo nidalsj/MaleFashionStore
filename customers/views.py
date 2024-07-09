@@ -58,7 +58,7 @@ def signupuser(request):
             phone=phone
         )
 
-        messages.success(request, 'Account created. Please log in')
+        messages.success(request, 'Account created! Please log in')
         return render(request, 'login.html')
     else:
         return render(request, 'signup.html')
@@ -76,8 +76,8 @@ def loginuser(request):
             login(request, user)
             return redirect('home')
         else:
-            messages.error(request, 'Invalid user. You need to signup first')
-            return render(request, 'signup.html')
+            messages.error(request, 'User does not exist!')
+            return render(request, 'login.html')
     else:
         return render(request, 'login.html')
 

@@ -76,28 +76,29 @@
                         </div>
                         <h3>₹ {{product.price}} <span>₹ {{product.mrp_price}}</span></h3>
                         <p>{{product.description}}</p>
-                        <form action="{% url 'add_to_cart' %}" method="post" enctype="multipart/form-data"> {% csrf_token %}
+                        <form action="{% url 'add_to_cart' %}" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
                             <div class="product__details__option">
                                 <div class="product__details__option__size">
                                     <span>Size:</span>
                                     {% if product.size_xl %}
                                     <label for="xl">XLarge
-                                        <input type="radio" id="xl" value="XLarge" name="size">
+                                        <input type="radio" id="xl" value="XLarge" name="size" required>
                                     </label>
                                     {% endif %}
                                     {% if product.size_l %}
-                                    <label class="active" for="l">Large
-                                        <input type="radio" id="l" value="Large" name="size">
+                                    <label for="l">Large
+                                        <input type="radio" id="l" value="Large" name="size" required>
                                     </label>
                                     {% endif %}
                                     {% if product.size_m %}
                                     <label for="m">Medium
-                                        <input type="radio" id="m" value="Medium" name="size">
+                                        <input type="radio" id="m" value="Medium" name="size" required>
                                     </label>
                                     {% endif %}
                                     {% if product.size_m %}
                                     <label for="sm">Small
-                                        <input type="radio" id="sm" value="Small" name="size">
+                                        <input type="radio" id="sm" value="Small" name="size" required>
                                     </label>
                                     {% endif %}
                                 </div>
@@ -109,6 +110,9 @@
                                         <input type="number" value="1" min="1" name="quantity">
                                         <span class="fa fa-angle-down inc qtybtn"></span>
                                     </div>
+                                </div>
+                                <div class="alert alert-secondary mt-3" role="alert">
+                                    Please select the size and quantity for adding the item to your cart.
                                 </div>
                                 <button type="submit" class="primary-btn">Add to Cart</button>
                             </div>
@@ -152,17 +156,30 @@
                             <div class="tab-pane" id="tabs-6" role="tabpanel">
                                 <div class="product__details__tab__content">
                                     <div class="product__details__tab__content__item">
-                                        <h5>Products Infomation</h5>
-                                        <p>A Pad.</p>
-                                        <p>As is ed.</p>
-                                    </div>
-                                    <div class="product__details__tab__content__item">
-                                        <h5>Material used</h5>
-                                        <p>Polyd.</p>
+                                        <form class="mb-5">
+                                            <div class="form-group">
+                        
+                                                <select id="inputState" class="form-control">
+                                                    <option selected>Rating</option>
+                                                    <option>*</option>
+                                                    <option>**</option>
+                                                    <option>***</option>
+                                                    <option>****</option>
+                                                    <option>*****</option>
+                                                </select>
+
+                                            </div>
+                                            <div class="form-group">
+                                                
+                                                <input type="text" class="form-control" id="exampleInputPassword1"
+                                                    placeholder="Review">
+                                            </div>
+
+                                            <button type="submit" class="primary-btn">Post Review</button>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>

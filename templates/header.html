@@ -33,6 +33,7 @@
                 {% include 'menu_items.html' %}
             </div>
             <div class="col-lg-3 col-md-3">
+                {% if request.user.is_authenticated %}
                 <div class="header__nav__option">
                     <a href="{% url 'user_profile' %}" style="color: black;"><i
                             class="fa-solid fa-user"></i>&nbsp;&nbsp;Profile</a>
@@ -41,6 +42,7 @@
                     </a>
 
                 </div>
+                {% endif %}
             </div>
         </div>
         <div class="canvas__open"><i class="fa fa-bars"></i></div>

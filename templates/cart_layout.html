@@ -54,14 +54,16 @@
                                     <p>{{ cart_item.quantity }}</p>
                                 </td>
                                 <td class="cart__price">₹ {% multiply cart_item.product.price cart_item.quantity %}</td>
-                                <td class="cart__close"><a href="{% url 'remove_item' cart_item.id %}"><i class="fa fa-close"></i></a></td>
+                                <td class="cart__close"><a href="{% url 'remove_item' cart_item.id %}"><i
+                                            class="fa fa-close"></i></a></td>
                             </tr>
                             {% endfor %}
-                                                        
+
                         </tbody>
                     </table>
                     {% else %}
-                    <h5 style="color: red;" class="mb-5"><i class="fa-regular fa-face-frown-open"></i> No items available in cart</h5>
+                    <h5 style="color: red;" class="mb-5"><i class="fa-regular fa-face-frown-open"></i> No items
+                        available in cart</h5>
                     {% endif %}
                 </div>
                 <div class="row">
@@ -79,9 +81,18 @@
             </div>
             <div class="col-lg-4">
                 <div class="cart__discount">
+
+                    <!-- Discount code form -->
                     <h6>Discount codes</h6>
-                    <form action="#">
-                        <input type="text" placeholder="Coupon code">
+                    {% if messages %}
+                    <div class="mb-3">
+                        {% include 'alert_message.html' %}
+                    </div>
+                    {% endif %}
+                    <form action="{% url 'cart' %}" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <input type="text" placeholder="Coupon code" name="code">
+                        <input type="hidden" name="total" value="{% gettotal cart %}"/>
                         <button type="submit">Apply</button>
                     </form>
                 </div>
@@ -90,10 +101,10 @@
                     <ul>
                         <li>Subtotal <span>₹ {% gettotal cart %}</span></li>
                         <li>Shipping <span>₹ 00.00</span></li>
-                        <li>Coupon Discount <span>- ₹ 00.00</span></li><br>
-                        <li><b>TOTAL</b> <span>₹ 169.50</span></li>
+                        <!-- <li>Coupon Discount <span>- ₹ {{ cart.coupon.discount_amount }}</span></li><br> -->
+                        <li><b>GRAND TOTAL</b> <span>₹ amount here</span></li>
                     </ul>
-                    <a href="#" class="primary-btn">Proceed to checkout</a>
+                    <a href="{% url 'checkout' %}" class="primary-btn">Proceed to checkout</a>
                 </div>
             </div>
         </div>
